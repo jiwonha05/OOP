@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제 74회 헝거게임: OOP 다형성 Vercel 시뮬레이터</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        sans: ['Noto Sans KR', 'sans-serif'],
+                    },
+                    colors: {
+                        arena: {
+                            bg: '#090d16',
+                            card: '#111827',
+                            border: '#1f2937',
+                            gold: '#f59e0b',
+                            crimson: '#dc2626',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glow-gold { box-shadow: 0 0 20px rgba(245, 158, 11, 0.4); }
+        .pixelated { image-rendering: pixelated; image-rendering: crisp-edges; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #090d16; }
+        ::-webkit-scrollbar-thumb { background: #374151; border-radius: 3px; }
+    </style>
+</head>
+<body class="bg-arena-bg text-gray-100 font-sans min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-black">
+
+    <header class="border-b border-gray-800 bg-black/50 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-4">
+                <div class="w-10 h-10 bg-amber-500 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(245, 158, 11, 0.5)]">
+                    <span class="text-xl text-black">🔥</span>
+                </div>
+                <div>
+                    <h1 class="font-cinzel text-xl font-black tracking-widest text-amber-500">THE HUNGER GAMES</h1>
+                    <p class="text-xs text-gray-400">Vercel 배포 시스템: UML & 동시성 다형성 엔진</p>
+                </div>
+            </div>
+            <span class="text-xs bg-amber-500/10 border border-amber-500/30 px-3 py-1.5 rounded-full text-amber-400 font-mono">
+                <i class="fa-solid fa-cloud-arrow-up mr-1"></i> Vercel Ready
+            </span>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-6xl w-full mx-auto px-6 py-8 flex flex-col gap-8">
+        
+        <section class="bg-arena-card border border-arena-border rounded-2xl p-6 shadow-2xl">
+            <div class="flex items-center gap-2 mb-4 pb-3 border-b border-gray-800">
+                <i class="fa-solid fa-diagram-project text-amber-500 text-lg"></i>
+                <h3 class="font-bold text-gray-100 text-base sm:text-lg">Tribute 시스템 구조 객체 설계도 (UML Diagram)</h3>
+            </div>
+
+            <div class="flex flex-col items-center gap-6 my-4 font-mono text-xs text-left">
+                
+                <div class="w-72 bg-gray-900 border-2 border-amber-500 rounded-lg shadow-md overflow-hidden">
+                    <div class="bg-amber-500 p-2 text-black font-bold text-center">
+                        «Abstract»<br>TributeADT
+                    </div>
+                    <div class="p-2 border-b border-gray-800 text-gray-400 text-[11px]">
+                        + name : String (Abstract)<br>
+                        + district : int (Abstract)
+                    </div>
+                    <div class="p-2 text-amber-400 text-[11px]">
+                        + train() : void (Abstract)<br>
+                        + fight(target : Tribute) : void (Abstract)
+                    </div>
+                </div>
+
+                <div class="text-gray-600 text-lg -my-3"><i class="fa-solid fa-arrow-up"></i></div>
+
+                <div class="w-72 bg-gray-900 border border-slate-600 rounded-lg shadow-md overflow-hidden">
+                    <div class="bg-slate-800 p-2 text-center font-bold text-slate-200">
+                        Tribute
+                    </div>
+                    <div class="p-2 border-b border-gray-800 text-gray-400 text-[11px]">
+                        - __name : String<br>
+                        - __district : int<br>
+                        - __weapon : String<br>
+                        - __health : int = 100
+                    </div>
+                    <div class="p-2 text-slate-300 text-[11px]">
+                        + name() : property<br>
+                        + district() : property<br>
+                        + weapon() : property<br>
+                        + health() : property<br>
+                        + take_damage(damage: int) : void<br>
+                        + train() : void<br>
+                        + fight(target : Tribute) : void
+                    </div>
+                </div>
+
+                <div class="w-full max-w-lg flex flex-col items-center -my-3">
+                    <div class="h-4 border-l border-gray-700"></div>
+                    <div class="w-2/3 border-t border-gray-700"></div>
+                    <div class="w-2/3 flex justify-between">
+                        <div class="h-3 border-l border-gray-700"></div>
+                        <div class="h-3 border-l border-gray-700"></div>
+                    </div>
+                </div>
+
+                <div class="w-full max-w-2xl grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    
+                    <div class="bg-gray-900 border border-amber-900/60 rounded-lg overflow-hidden shadow-inner">
+                        <div class="bg-amber-950/40 p-2 text-center font-bold text-amber-400 border-b border-gray-800">
+                            UnderdogTribute
+                        </div>
+                        <div class="p-2 border-b border-gray-800 text-gray-400 text-[11px]">
+                            - __survival_skill : String
+                        </div>
+                        <div class="p-2 text-amber-500/80 text-[11px]">
+                            + fight(target : Tribute) : void <span class="text-gray-500 font-sans">[Override]</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-900 border border-red-950 rounded-lg overflow-hidden shadow-inner">
+                        <div class="bg-red-950/40 p-2 text-center font-bold text-
