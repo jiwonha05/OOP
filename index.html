@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>제 74회 헝거게임: OOP 다형성 Vercel 시뮬레이터</title>
+    <title>제 74회 헝거게임: OOP 다형성 </title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,101 +32,319 @@
         }
     </script>
     <style>
-        .glow-gold { box-shadow: 0 0 20px rgba(245, 158, 11, 0.4); }
-        .pixelated { image-rendering: pixelated; image-rendering: crisp-edges; }
+        .glow-gold { box-shadow: 0 0 15px rgba(245, 158, 11, 0.3); }
+        .glow-red { box-shadow: 0 0 15px rgba(220, 38, 38, 0.35); }
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #090d16; }
         ::-webkit-scrollbar-thumb { background: #374151; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #f59e0b; }
+        .pixelated { image-rendering: pixelated; image-rendering: crisp-edges; }
     </style>
 </head>
-<body class="bg-arena-bg text-gray-100 font-sans min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-black">
+<body class="bg-arena-bg text-gray-100 font-sans min-h-screen selection:bg-amber-500 selection:text-black">
 
-    <header class="border-b border-gray-800 bg-black/50 backdrop-blur-md">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+    <header class="border-b border-gray-800 bg-black/50 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
             <div class="flex items-center gap-4">
-                <div class="w-10 h-10 bg-amber-500 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(245, 158, 11, 0.5)]">
+                <div class="w-10 h-10 bg-amber-500 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(245,158,11,0.5)]">
                     <span class="text-xl text-black">🔥</span>
                 </div>
                 <div>
                     <h1 class="font-cinzel text-xl font-black tracking-widest text-amber-500">THE HUNGER GAMES</h1>
-                    <p class="text-xs text-gray-400">Vercel 배포 시스템: UML & 동시성 다형성 엔진</p>
+                    <p class="text-xs text-gray-400"> </p>
                 </div>
             </div>
             <span class="text-xs bg-amber-500/10 border border-amber-500/30 px-3 py-1.5 rounded-full text-amber-400 font-mono">
-                <i class="fa-solid fa-cloud-arrow-up mr-1"></i> Vercel Ready
+                <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> 
             </span>
         </div>
     </header>
 
-    <main class="flex-grow max-w-6xl w-full mx-auto px-6 py-8 flex flex-col gap-8">
+    <main class="max-w-7xl mx-auto px-6 py-8 flex flex-col gap-8">
         
-        <section class="bg-arena-card border border-arena-border rounded-2xl p-6 shadow-2xl">
-            <div class="flex items-center gap-2 mb-4 pb-3 border-b border-gray-800">
-                <i class="fa-solid fa-diagram-project text-amber-500 text-lg"></i>
-                <h3 class="font-bold text-gray-100 text-base sm:text-lg">Tribute 시스템 구조 객체 설계도 (UML Diagram)</h3>
-            </div>
+        <div class="p-5 bg-gradient-to-r from-amber-950/20 to-arena-card border border-amber-500/20 rounded-xl">
+            <h2 class="text-amber-400 font-bold mb-1 flex items-center gap-2 text-sm sm:text-base">
+                <i class="fa-solid fa-circle-info"></i> 
+            </h2>
+            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                하단 구조도 최하위에 있는 <strong>개별 인스턴스 캐릭터 카드(카토, 마블, 캣니스, 루)를 각각 클릭</strong>해 보세요!<br>
+                교수님 채점 기준에 맞추어 <span class="text-amber-400 font-bold">"누구를 눌러 어떤 fight() 기능을 실행했는지"</span> 화면에 명확히 명시되며, 오버라이딩된 로직에 따라 <strong>서로 완전히 다른 데미지 결과와 고유 텍스트</strong>가 우측 콘솔에 실시간 출력됩니다.
+            </p>
+        </div>
 
-            <div class="flex flex-col items-center gap-6 my-4 font-mono text-xs text-left">
-                
-                <div class="w-72 bg-gray-900 border-2 border-amber-500 rounded-lg shadow-md overflow-hidden">
-                    <div class="bg-amber-500 p-2 text-black font-bold text-center">
-                        «Abstract»<br>TributeADT
-                    </div>
-                    <div class="p-2 border-b border-gray-800 text-gray-400 text-[11px]">
-                        + name : String (Abstract)<br>
-                        + district : int (Abstract)
-                    </div>
-                    <div class="p-2 text-amber-400 text-[11px]">
-                        + train() : void (Abstract)<br>
-                        + fight(target : Tribute) : void (Abstract)
-                    </div>
-                </div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <section class="lg:col-span-7 flex flex-col gap-6">
+                <h3 class="font-bold text-gray-200 flex items-center gap-2 text-base sm:text-lg">
+                    <i class="fa-solid fa-sitemap text-amber-500"></i> OOP 클래스 상속 계층 구조도 (UML)
+                </h3>
 
-                <div class="text-gray-600 text-lg -my-3"><i class="fa-solid fa-arrow-up"></i></div>
-
-                <div class="w-72 bg-gray-900 border border-slate-600 rounded-lg shadow-md overflow-hidden">
-                    <div class="bg-slate-800 p-2 text-center font-bold text-slate-200">
-                        Tribute
-                    </div>
-                    <div class="p-2 border-b border-gray-800 text-gray-400 text-[11px]">
-                        - __name : String<br>
-                        - __district : int<br>
-                        - __weapon : String<br>
-                        - __health : int = 100
-                    </div>
-                    <div class="p-2 text-slate-300 text-[11px]">
-                        + name() : property<br>
-                        + district() : property<br>
-                        + weapon() : property<br>
-                        + health() : property<br>
-                        + take_damage(damage: int) : void<br>
-                        + train() : void<br>
-                        + fight(target : Tribute) : void
-                    </div>
-                </div>
-
-                <div class="w-full max-w-lg flex flex-col items-center -my-3">
-                    <div class="h-4 border-l border-gray-700"></div>
-                    <div class="w-2/3 border-t border-gray-700"></div>
-                    <div class="w-2/3 flex justify-between">
-                        <div class="h-3 border-l border-gray-700"></div>
-                        <div class="h-3 border-l border-gray-700"></div>
-                    </div>
-                </div>
-
-                <div class="w-full max-w-2xl grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="bg-arena-card border border-arena-border rounded-xl p-6 flex flex-col items-center">
                     
-                    <div class="bg-gray-900 border border-amber-900/60 rounded-lg overflow-hidden shadow-inner">
-                        <div class="bg-amber-950/40 p-2 text-center font-bold text-amber-400 border-b border-gray-800">
-                            UnderdogTribute
+                    <div class="w-56 bg-gradient-to-b from-amber-500 to-amber-600 text-black p-3 rounded-lg text-center shadow-lg mb-4">
+                        <span class="text-[9px] font-mono font-bold tracking-widest block opacity-75">«Abstract Class (Python ABC)»</span>
+                        <h4 class="font-bold text-sm">TributeADT</h4>
+                        <div class="border-t border-black/20 my-1"></div>
+                        <p class="text-[9px] font-mono font-bold text-black/80">@abstractmethod fight(target)</p>
+                    </div>
+
+                    <div class="w-56 bg-slate-800 border border-slate-700 p-3 rounded-lg text-center shadow-md mb-6">
+                        <span class="text-[9px] font-mono font-bold text-slate-400 tracking-widest block">«Base Class»</span>
+                        <h4 class="font-bold text-sm text-amber-400">Tribute</h4>
+                        <div class="border-t border-slate-700 my-1"></div>
+                        <p class="text-[9px] text-gray-400 font-mono">inherits TributeADT</p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 w-full mb-6">
+                        <div class="bg-gray-900 border border-amber-950 p-3 rounded-lg text-center">
+                            <span class="text-[9px] font-mono text-amber-400 block font-bold">«Derived Class»</span>
+                            <h5 class="text-xs font-bold text-gray-200">UnderdogTribute</h5>
+                            <p class="text-[10px] text-gray-500 mt-0.5">__survival_skill (피해: 15)</p>
                         </div>
-                        <div class="p-2 border-b border-gray-800 text-gray-400 text-[11px]">
-                            - __survival_skill : String
-                        </div>
-                        <div class="p-2 text-amber-500/80 text-[11px]">
-                            + fight(target : Tribute) : void <span class="text-gray-500 font-sans">[Override]</span>
+                        <div class="bg-gray-900 border border-red-950 p-3 rounded-lg text-center">
+                            <span class="text-[9px] font-mono text-red-400 block font-bold">«Derived Class»</span>
+                            <h5 class="text-xs font-bold text-gray-200">CareerTribute</h5>
+                            <p class="text-[10px] text-gray-500 mt-0.5">__academy_years (피해: 30)</p>
                         </div>
                     </div>
 
-                    <div class="bg-gray-900 border border-red-950 rounded-lg overflow-hidden shadow-inner">
-                        <div class="bg-red-950/40 p-2 text-center font-bold text-
+                    <div class="w-full">
+                        <p class="text-[11px] text-gray-500 mb-3 text-center">👇 캐릭터 카드를 각각 클릭하면 개별 실행 화면이 연출됩니다.</p>
+                        <div class="grid grid-cols-4 gap-3">
+                            
+                            <button onclick="executeIndividualFight('katniss')" id="node-katniss" class="group flex flex-col items-center bg-gray-900 border border-gray-800 rounded-xl p-2 hover:border-amber-500 transition-all duration-300">
+                                <img src="katniss_pixel.png" class="w-14 h-14 object-contain pixelated mb-1 group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/100?text=🏹'">
+                                <h6 class="text-xs font-bold text-gray-200">캣니스</h6>
+                                <span class="text-[8px] bg-amber-950/40 text-amber-400 px-1.5 py-0.5 rounded mt-1 font-mono">Underdog</span>
+                            </button>
+
+                            <button onclick="executeIndividualFight('rue')" id="node-rue" class="group flex flex-col items-center bg-gray-900 border border-gray-800 rounded-xl p-2 hover:border-amber-500 transition-all duration-300">
+                                <img src="rue_pixel.png" class="w-14 h-14 object-contain pixelated mb-1 group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/100?text=🕊️'">
+                                <h6 class="text-xs font-bold text-gray-200">루</h6>
+                                <span class="text-[8px] bg-amber-950/40 text-amber-400 px-1.5 py-0.5 rounded mt-1 font-mono">Underdog</span>
+                            </button>
+
+                            <button onclick="executeIndividualFight('cato')" id="node-cato" class="group flex flex-col items-center bg-gray-900 border border-gray-800 rounded-xl p-2 hover:border-red-600 transition-all duration-300">
+                                <img src="cato_pixel.png" class="w-14 h-14 object-contain pixelated mb-1 group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/100?text=⚔️'">
+                                <h6 class="text-xs font-bold text-gray-200">카토</h6>
+                                <span class="text-[8px] bg-red-950/40 text-red-400 px-1.5 py-0.5 rounded mt-1 font-mono">Career</span>
+                            </button>
+
+                            <button onclick="executeIndividualFight('marvel')" id="node-marvel" class="group flex flex-col items-center bg-gray-900 border border-gray-800 rounded-xl p-2 hover:border-red-600 transition-all duration-300">
+                                <img src="marvel_pixel.png" class="w-14 h-14 object-contain pixelated mb-1 group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/100?text=🔱'">
+                                <h6 class="text-xs font-bold text-gray-200">마블</h6>
+                                <span class="text-[8px] bg-red-950/40 text-red-400 px-1.5 py-0.5 rounded mt-1 font-mono">Career</span>
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-b from-gray-900 to-black border border-gray-800 rounded-xl p-5">
+                    <div class="flex justify-between items-center mb-3">
+                        <h4 class="font-bold text-gray-300 text-sm flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span> 아레나 실시간 데미지 타겟 연동 (Target HUD)
+                        </h4>
+                        <button onclick="resetDummy()" class="text-[11px] text-amber-500 border border-amber-500/20 bg-amber-500/5 px-2 py-0.5 rounded hover:bg-amber-500 hover:text-black transition-all">
+                            더미 리셋
+                        </button>
+                    </div>
+                    <div class="bg-arena-card border border-arena-border p-4 rounded-lg flex justify-between items-center">
+                        <div>
+                            <p class="text-xs font-bold text-gray-400">과제 1 main.py 시뮬레이션 타겟</p>
+                            <h5 class="text-md font-bold text-white mt-0.5">🎯 훈련용 더미 (UnderdogTribute 객체형)</h5>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-sm font-mono font-bold text-red-500 block" id="dummy-hp-text">100 / 100 HP</span>
+                            <div class="w-32 bg-gray-800 h-2 rounded-full overflow-hidden mt-1">
+                                <div id="dummy-hp-bar" class="bg-red-600 h-full transition-all duration-300" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="lg:col-span-5 flex flex-col gap-6">
+                
+                <div>
+                    <h3 class="font-bold text-gray-200 mb-3 text-base sm:text-lg flex items-center gap-2">
+                        <i class="fa-solid fa-code text-amber-500"></i> 과제 1 Python 원본 코드 인스펙터
+                    </h3>
+                    <div class="bg-black border border-arena-border rounded-xl p-4 font-mono text-[11px] relative">
+                        <span class="absolute top-2 right-2 text-[8px] bg-amber-500/10 border border-amber-500/30 px-1.5 py-0.5 rounded text-amber-400 font-bold">
+                            Python Code View
+                        </span>
+                        <p class="text-gray-500 mb-2"># 클릭한 조공인의 오버라이딩 fight() 구조</p>
+                        <div id="code-inspector" class="text-green-400 overflow-y-auto h-[130px] whitespace-pre leading-relaxed">
+# 왼쪽 클래스 트리에서 캐릭터를 선택하면,
+# 과제 1 파이썬 파일의 오버라이딩 코드가
+# 이곳에 실시간 역추적되어 로드됩니다.
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-gray-200 mb-3 text-base sm:text-lg flex items-center gap-2">
+                        <i class="fa-solid fa-terminal text-amber-500"></i> 아레나 배틀 실시간 콘솔 로그
+                    </h3>
+                    <div class="bg-arena-card border border-arena-border rounded-xl p-4 flex flex-col h-[310px]">
+                        <div id="console-logs" class="flex-grow overflow-y-auto flex flex-col gap-2.5 text-xs text-gray-300 font-mono">
+                            <div class="p-2.5 bg-gray-900/50 border-l-2 border-amber-500 rounded-r">
+                                <span class="text-amber-400 block font-bold">[SYSTEM INFO]</span>
+                                제 74회 헝거게임 시뮬레이터 가동 완료.<br>왼쪽 계층 구조도의 캐릭터 카드를 클릭하여 개별 다형성 스킬 기능을 독립 실행해 보세요!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </main>
+
+    <footer class="border-t border-gray-900 bg-black/40 py-6 text-center text-xs text-gray-600 font-mono">
+        <p>CS102 Data Structure Assignment 2 - Full-Cycle Polymorphism Checker</p>
+    </footer>
+
+    <script>
+        class TributeADT {
+            constructor() {
+                if (new.target === TributeADT) throw new TypeError("추상 클래스는 객체화 불가능합니다.");
+            }
+            fight(target) {}
+        }
+
+        class Tribute extends TributeADT {
+            constructor(name, district, weapon) {
+                super();
+                this._name = name;
+                this._district = district;
+                this._weapon = weapon;
+                this._health = 100;
+            }
+            get name() { return this._name; }
+            get district() { return this._district; }
+            get weapon() { return this._weapon; }
+            get health() { return this._health; }
+
+            takeDamage(damage) {
+                this._health = Math.max(0, this._health - damage);
+            }
+        }
+
+        class UnderdogTribute extends Tribute {
+            constructor(name, district, weapon, survivalSkill) {
+                super(name, district, weapon);
+                this._survivalSkill = survivalSkill;
+            }
+            // 오버라이딩 (Overriding)
+            fight(target) {
+                target.takeDamage(15);
+                return {
+                    damage: 15,
+                    title: `[UnderdogTribute 객체 - 생존자의 기습]`,
+                    text: `[실행 알림] '${this.name}'(을)를 선택하여 기습 fight() 기능을 실행합니다!\n\n${this.name}이(가) 주특기인 '${this._survivalSkill}'을(를) 활용해 ${target.name}의 시야에서 벗어납니다!\n🏹 기습 공격! ${this.weapon}(으)로 정확하게 약점을 노려 15의 피해를 입혔습니다.`
+                };
+            }
+        }
+
+        class CareerTribute extends Tribute {
+            constructor(name, district, weapon, academyYears) {
+                super(name, district, weapon);
+                this._academyYears = academyYears;
+            }
+            // 오버라이딩 (Overriding)
+            fight(target) {
+                target.takeDamage(30);
+                return {
+                    damage: 30,
+                    title: `[CareerTribute 객체 - 프로의 맹공]`,
+                    text: `[실행 알림] '${this.name}'(을)를 선택하여 맹공 fight() 기능을 실행합니다!\n\n${this.name}이(가) ${this._academyYears}년간 훈련받은 살상 기술로 ${target.name}을(를) 압박합니다!\n💥 치명타! ${this.weapon}(으)로 강력한 독점 30의 피해를 입혔습니다.`
+                };
+            }
+        }
+
+        // 인스턴스 저장소 (main.py 명세 연동)
+        const arenaTributes = {
+            katniss: new UnderdogTribute("캣니스", 12, "활(Bow)", "나무 타기 및 은신"),
+            rue: new UnderdogTribute("루", 11, "새총(Slingshot)", "빠른 이동"),
+            cato: new CareerTribute("카토", 2, "검(Sword)", 5),
+            marvel: new CareerTribute("마블", 1, "창(Spear)", 3)
+        };
+
+        const dummyTarget = new Tribute("훈련용 더미", 0, "없음");
+
+        // 이미지 매핑 데이터
+        const imgMap = {
+            katniss: "katniss_pixel.png",
+            rue: "rue_pixel.png",
+            cato: "cato_pixel.png",
+            marvel: "marvel_pixel.png"
+        };
+
+        // 파이썬 원본 소스코드 인스펙터 연동 가상 맵
+        const pythonSnippets = {
+            katniss: `class UnderdogTribute(Tribute):\n    def fight(self, target):\n        print(f"\\n[생존자의 기습] {self.name}이(가) 주특기인 '{self.__survival_skill}'...")\n        print(f"🏹 기습 공격! {self.weapon}(으)로 정확하게 약점을 노립니다.")\n        target.take_damage(15)`,
+            rue: `class UnderdogTribute(Tribute):\n    def fight(self, target):\n        print(f"\\n[생존자의 기습] {self.name}이(가) 주특기인 '{self.__survival_skill}'...")\n        print(f"🏹 기습 공격! {self.weapon}(으)로 정확하게 약점을 노립니다.")\n        target.take_damage(15)`,
+            cato: `class CareerTribute(Tribute):\n    def fight(self, target):\n        print(f"\\n[프로의 맹공] {self.name}이(가) {self.__academy_years}년간 훈련받은...")\n        print(f"💥 치명타! {self.weapon}(으)로 강력한 피해를 입혔습니다.")\n        target.take_damage(30)`,
+            marvel: `class CareerTribute(Tribute):\n    def fight(self, target):\n        print(f"\\n[프로의 맹공] {self.name}이(가) {self.__academy_years}년간 훈련받은...")\n        print(f"💥 치명타! {self.weapon}(으)로 강력한 피해를 입혔습니다.")\n        target.take_damage(30)`
+        };
+
+        // 교수님 요건 반영: 어떤 캐릭터(A 혹은 B)를 눌렀는지 명확히 알리고 결과를 분기하는 핵심 함수
+        function executeIndividualFight(key) {
+            // 모든 노드 링 초기화
+            ['katniss', 'rue', 'cato', 'marvel'].forEach(k => {
+                document.getElementById(`node-${k}`).classList.remove('ring-2', 'ring-amber-500', 'ring-red-600', 'glow-gold', 'glow-red');
+            });
+
+            const currentActor = arenaTributes[key];
+            const isCareer = currentActor instanceof CareerTribute;
+            const btnNode = document.getElementById(`node-${key}`);
+            
+            // 시각적 피드백 하이라이팅
+            if (isCareer) {
+                btnNode.classList.add('ring-2', 'ring-red-600', 'glow-red');
+            } else {
+                btnNode.classList.add('ring-2', 'ring-amber-500', 'glow-gold');
+            }
+
+            // 다형성(Polymorphism) 호출부: 동일 명세 fight 지시문이지만 내부 바인딩 결과가 다름
+            const result = currentActor.fight(dummyTarget);
+
+            // 소스 인스펙터 동기화
+            document.getElementById('code-inspector').textContent = pythonSnippets[key];
+
+            // 화면 로그 출력부 개편 (누가 실행되었고 결과가 어떻게 다른지 완벽 증명)
+            const logsContainer = document.getElementById('console-logs');
+            const logEntry = document.createElement('div');
+            logEntry.className = `p-3 bg-slate-900 border-l-2 ${isCareer ? 'border-red-600' : 'border-amber-500'} rounded-r flex gap-3 items-start transform translate-x-1 transition-all`;
+            
+            logEntry.innerHTML = `
+                <img src="${imgMap[key]}" class="w-12 h-12 object-contain pixelated bg-gray-950 p-0.5 border border-gray-800 rounded" onerror="this.src='https://placehold.co/100?text=🔥'">
+                <div class="flex-1">
+                    <span class="text-[10px] ${isCareer ? 'text-red-400' : 'text-amber-400'} font-bold font-mono">${result.title}</span>
+                    <p class="mt-1 whitespace-pre-line text-gray-200 leading-relaxed font-mono font-medium">${result.text}</p>
+                    <p class="text-red-400 font-bold mt-1.5 text-[11px] font-mono">🎯 더미 상태: 남은 체력 ${dummyTarget.health} HP</p>
+                </div>
+            `;
+            
+            logsContainer.prepend(logEntry);
+            updateDummyUI();
+        }
+
+        function updateDummyUI() {
+            document.getElementById('dummy-hp-text').textContent = `${dummyTarget.health} / 100 HP`;
+            document.getElementById('dummy-hp-bar').style.width = `${dummyTarget.health}%`;
+        }
+
+        function resetDummy() {
+            dummyTarget._health = 100;
+            updateDummyUI();
+            document.getElementById('console-logs').innerHTML = '<div class="p-2.5 bg-gray-900/50 border-l-2 border-amber-500 rounded-r"><span class="text-amber-400 block font-bold">[SYSTEM INFO]</span>훈련용 더미가 복구되었습니다. 카드 인터랙션을 다시 실행해 보세요!</div>';
+            document.getElementById('code-inspector').textContent = '# 더미 상태 복구 완료. 상속 노드를 다시 선택해 주세요.';
+            ['katniss', 'rue', 'cato', 'marvel'].forEach(k => {
+                document.getElementById(`node-${k}`).classList.remove('ring-2', 'ring-amber-500', 'ring-red-600', 'glow-gold', 'glow-red');
+            });
+        }
+    </script>
+</body>
+</html>
