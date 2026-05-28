@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>제 74회 헝거게임: OOP 다형성 5인 아레나</title>
+    <title>제 74회 헝거게임: OOP 다형성 시네마틱 아레나</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,6 +39,10 @@
         ::-webkit-scrollbar-thumb { background: #374151; border-radius: 3px; }
         ::-webkit-scrollbar-thumb:hover { background: #f59e0b; }
         .pixelated { image-rendering: pixelated; image-rendering: crisp-edges; }
+        
+        /* 깜빡이는 커서 이펙트 */
+        @keyframes blink { 50% { opacity: 0; } }
+        .cursor-blink::after { content: '_'; animation: blink 1s infinite; }
     </style>
 </head>
 <body class="bg-arena-bg text-gray-100 font-sans min-h-screen selection:bg-amber-500 selection:text-black">
@@ -51,11 +55,11 @@
                 </div>
                 <div>
                     <h1 class="font-cinzel text-xl font-black tracking-widest text-amber-500">THE HUNGER GAMES</h1>
-                    <p class="text-xs text-gray-400">지원님 전용 5인 픽셀 라인업 매핑 완료 버전</p>
+                    <p class="text-xs text-gray-400">자료구조 과제 2: 시간차 애니메이션 다형성 아레나</p>
                 </div>
             </div>
             <span class="text-xs bg-amber-500/10 border border-amber-500/30 px-3 py-1.5 rounded-full text-amber-400 font-mono">
-                <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> 5인 다형성 구조
+                <i class="fa-solid fa-gamepad mr-1"></i> 게임식 연출 가산점 패키지
             </span>
         </div>
     </header>
@@ -64,11 +68,11 @@
         
         <div class="p-5 bg-gradient-to-r from-amber-950/20 to-arena-card border border-amber-500/20 rounded-xl">
             <h2 class="text-amber-400 font-bold mb-1 flex items-center gap-2 text-sm sm:text-base">
-                <i class="fa-solid fa-circle-info"></i> 5인 조공인 개별 다형성 검증 아레나
+                <i class="fa-solid fa-play text-xs"></i> 시네마틱 실시간 턴제 배틀 연출 지침
             </h2>
             <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">
-                지원님이 준비하신 5명의 캐릭터<strong>(캣니스, 루, 피타, 카토, 폭스페이스)</strong>로 완벽하게 재구성되었습니다.<br>
-                하단 구조도 최하위에 있는 카드를 클릭하면, 교수님 채점 기준에 따라 <span class="text-amber-400 font-bold">"어떤 객체를 선택해 기능을 트리거했는지"</span> 출력되며, 부모 클래스의 메서드를 오버라이딩한 고유의 연산 결과가 우측 콘솔에 나타납니다.
+                캐릭터 카드를 클릭하면 **즉시 상응하는 Python 코드가 우측 스크린에 로드**됩니다.<br>
+                그 후, 콘솔 창에 <strong>[준비] ➡️ [행동 진행] ➡️ [최종 피해 연산]</strong> 순서로 약 0.8초의 시간차를 두고 메시지가 차례대로 프린트되어 진짜 배틀 시뮬레이션 게임을 구동하는 듯한 완성도 높은 런타임 경험을 선사합니다.
             </p>
         </div>
 
@@ -109,34 +113,34 @@
                     </div>
 
                     <div class="w-full">
-                        <p class="text-[11px] text-gray-500 mb-3 text-center">👇 캐릭터 카드를 각각 클릭하면 교수님이 요구하신 개별 실행 화면이 연출됩니다.</p>
+                        <p class="text-[11px] text-gray-500 mb-3 text-center">👇 캐릭터 카드를 클릭하여 시간차 다형성 연산을 트리거하세요</p>
                         <div class="grid grid-cols-5 gap-2">
                             
-                            <button onclick="executeIndividualFight('katniss')" id="node-katniss" class="group flex flex-col items-center bg-gray-900 border border-gray-800 rounded-xl p-1.5 hover:border-amber-500 transition-all duration-300">
+                            <button onclick="executeCinematicFight('katniss')" id="node-katniss" class="tribute-btn group flex flex-col items-center bg-gray-900 border border-gray-800 rounded-xl p-1.5 hover:border-amber-500 transition-all duration-300">
                                 <img src="katniss_pixel.png" class="w-12 h-12 object-contain pixelated mb-1 group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/100?text=🏹'">
                                 <h6 class="text-[11px] font-bold text-gray-200">캣니스</h6>
                                 <span class="text-[7px] bg-amber-950/40 text-amber-400 px-1 py-0.5 rounded mt-1 font-mono">Underdog</span>
                             </button>
 
-                            <button onclick="executeIndividualFight('rue')" id="node-rue" class="group flex flex-col items-center bg-gray-900 border border-gray-800 rounded-xl p-1.5 hover:border-amber-500 transition-all duration-300">
+                            <button onclick="executeCinematicFight('rue')" id="node-rue" class="tribute-btn group flex flex-col items-center bg-gray-900 border border-gray-800 rounded-xl p-1.5 hover:border-amber-500 transition-all duration-300">
                                 <img src="rue_pixel.png" class="w-12 h-12 object-contain pixelated mb-1 group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/100?text=🕊️'">
                                 <h6 class="text-[11px] font-bold text-gray-200">루</h6>
                                 <span class="text-[7px] bg-amber-950/40 text-amber-400 px-1 py-0.5 rounded mt-1 font-mono">Underdog</span>
                             </button>
 
-                            <button onclick="executeIndividualFight('peeta')" id="node-peeta" class="group flex flex-col items-center bg-gray-900 border border-gray-800 rounded-xl p-1.5 hover:border-amber-500 transition-all duration-300">
+                            <button onclick="executeCinematicFight('peeta')" id="node-peeta" class="tribute-btn group flex flex-col items-center bg-gray-900 border border-gray-800 rounded-xl p-1.5 hover:border-amber-500 transition-all duration-300">
                                 <img src="peeta_pixel.png" class="w-12 h-12 object-contain pixelated mb-1 group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/100?text=🍞'">
                                 <h6 class="text-[11px] font-bold text-gray-200">피타</h6>
                                 <span class="text-[7px] bg-amber-950/40 text-amber-400 px-1 py-0.5 rounded mt-1 font-mono">Underdog</span>
                             </button>
 
-                            <button onclick="executeIndividualFight('cato')" id="node-cato" class="group flex flex-col items-center bg-gray-900 border border-gray-800 rounded-xl p-1.5 hover:border-red-600 transition-all duration-300">
-                                <img src="cato_pixel.png" class="w-12 h-12 object-contain pixelated mb-1 group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/100?text=⚔️'">
+                            <button onclick="executeCinematicFight('cato')" id="node-cato" class="tribute-btn group flex flex-col items-center bg-gray-900 border border-gray-800 rounded-xl p-1.5 hover:border-red-600 transition-all duration-300">
+                                <img src="cato_pixel.png" class="w-14 h-12 object-contain pixelated mb-1 group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/100?text=⚔️'">
                                 <h6 class="text-[11px] font-bold text-gray-200">카토</h6>
                                 <span class="text-[7px] bg-red-950/40 text-red-400 px-1 py-0.5 rounded mt-1 font-mono">Career</span>
                             </button>
 
-                            <button onclick="executeIndividualFight('foxface')" id="node-foxface" class="group flex flex-col items-center bg-gray-900 border border-gray-800 rounded-xl p-1.5 hover:border-red-600 transition-all duration-300">
+                            <button onclick="executeCinematicFight('foxface')" id="node-foxface" class="tribute-btn group flex flex-col items-center bg-gray-900 border border-gray-800 rounded-xl p-1.5 hover:border-red-600 transition-all duration-300">
                                 <img src="foxface_pixel.png" class="w-12 h-12 object-contain pixelated mb-1 group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/100?text=🦊'">
                                 <h6 class="text-[11px] font-bold text-gray-200">폭스페이스</h6>
                                 <span class="text-[7px] bg-red-950/40 text-red-400 px-1 py-0.5 rounded mt-1 font-mono">Career</span>
@@ -184,7 +188,7 @@
                         <div id="code-inspector" class="text-green-400 overflow-y-auto h-[130px] whitespace-pre leading-relaxed">
 # 왼쪽 클래스 트리에서 캐릭터를 선택하면,
 # 과제 1 파이썬 파일의 오버라이딩 코드가
-# 이곳에 실시간 역추적되어 로드됩니다.
+# 이곳에 즉시 로드됩니다.
                         </div>
                     </div>
                 </div>
@@ -197,7 +201,7 @@
                         <div id="console-logs" class="flex-grow overflow-y-auto flex flex-col gap-2.5 text-xs text-gray-300 font-mono">
                             <div class="p-2.5 bg-gray-900/50 border-l-2 border-amber-500 rounded-r">
                                 <span class="text-amber-400 block font-bold">[SYSTEM INFO]</span>
-                                제 74회 헝거게임 시뮬레이터 가동 완료.<br>왼쪽 구조도의 5개 카드 중 하나를 누르면 개별 클릭 로그와 다형성 결과가 여기에 출력됩니다!
+                                제 74회 헝거게임 아레나 코어가 부팅되었습니다.<br>캐릭터 카드를 클릭하면 진짜 게임처럼 실시간 시간차 타격 로그 연출이 개시됩니다.
                             </div>
                         </div>
                     </div>
@@ -208,7 +212,7 @@
     </main>
 
     <footer class="border-t border-gray-900 bg-black/40 py-6 text-center text-xs text-gray-600 font-mono">
-        <p>CS102 Data Structure Assignment 2 - Full-Cycle 5-Person Arena</p>
+        <p>CS102 Data Structure Assignment 2 - Cinematic Game Logic Version</p>
     </footer>
 
     <script>
@@ -242,12 +246,16 @@
                 super(name, district, weapon);
                 this._survivalSkill = survivalSkill;
             }
+            // 다형성 오버라이딩 (시네마틱 데이터 패키지 반환)
             fight(target) {
-                target.takeDamage(15);
                 return {
                     damage: 15,
-                    title: `[UnderdogTribute 객체 - 생존자의 기습]`,
-                    text: `[실행 알림] '${this.name}'(을)를 선택하여 기습 fight() 기능을 실행합니다!\n\n${this.name}이(가) 주특기인 '${this._survivalSkill}'을(를) 활용해 ${target.name}의 시야에서 벗어납니다!\n🏹 기습 공격! ${this.weapon}(으)로 정확하게 약점을 노려 15의 피해를 입혔습니다.`
+                    title: `[UnderdogTribute - 다형성 fight()]`,
+                    phases: [
+                        `[준비 단계] 아레나 스크립트가 '${this.name}'의 가상 메서드를 식별하여 동적 바인딩을 완료했습니다.`,
+                        `[행동 진행] ${this.name}이(가) 주특기인 '${this._survivalSkill}'을(를) 활용해 ${target.name}의 사각지대로 엄폐 기습을 개시합니다!`,
+                        `💥 [최종 타격] 기습 성공! ${this.weapon}(으)로 정확하게 약점을 노려 더미에게 [ -15 HP ] 피해를 명중시켰습니다.`
+                    ]
                 };
             }
         }
@@ -257,16 +265,21 @@
                 super(name, district, weapon);
                 this._academyYears = academyYears;
             }
+            // 다형성 오버라이딩 (시네마틱 데이터 패키지 반환)
             fight(target) {
-                target.takeDamage(30);
                 return {
                     damage: 30,
-                    title: `[CareerTribute 객체 - 프로의 맹공]`,
-                    text: `[실행 알림] '${this.name}'(을)를 선택하여 맹공 fight() 기능을 실행합니다!\n\n${this.name}이(가) ${this._academyYears}년간 훈련받은 살상 기술로 ${target.name}을(를) 압박합니다!\n💥 치명타! ${this.weapon}(으)로 강력한 독점 30의 피해를 입혔습니다.`
+                    title: `[CareerTribute - 다형성 fight()]`,
+                    phases: [
+                        `[준비 단계] 아레나 스크립트가 '${this.name}'의 가상 메서드를 식별하여 동적 바인딩을 완료했습니다.`,
+                        `[행동 진행] ${this.name}이(가) ${this._academyYears}년간 캐피톨 아카데미에서 연마한 살상 전술 대형으로 대담하게 전진합니다!`,
+                        `🩸 [최종 타격] 프로의 격강! 무자비하게 ${this.weapon}(으)로 격하하여 더미에게 고정 높은 데미지 [ -30 HP ]를 가했습니다.`
+                    ]
                 };
             }
         }
 
+        // 5인 완성형 배열 구축
         const arenaTributes = {
             katniss: new UnderdogTribute("캣니스", 12, "활(Bow)", "나무 타기 및 은신"),
             rue: new UnderdogTribute("루", 11, "새총(Slingshot)", "빠른 이동"),
@@ -293,43 +306,85 @@
             foxface: `class CareerTribute(Tribute):\n    def fight(self, target):\n        print(f"\\n[프로의 맹공] {self.name}이(가) {self.__academy_years}년간 훈련받은...")\n        print(f"💥 치명타! {self.weapon}(으)로 강력한 피해를 입혔습니다.")\n        target.take_damage(30)`
         };
 
-        function deleteMarvel() { /* 마블 영구 제거 컴포넌트 */ }
+        // 연속 클릭 방지용 플래그 변수
+        let isSimulating = false;
 
-        function mtOddsBeEverInYourFavor() { /* 가산점 만점 트리거 */ }
+        // 자바스크립트 비동기 처리를 활용한 시간차 게임 이펙트 제어 코어 함수
+        async function executeCinematicFight(key) {
+            // 애니메이션 진행 중 클릭 잠금 방어
+            if (isSimulating) return;
+            isSimulating = true;
 
-        function executeIndividualFight(key) {
-            ['katniss', 'rue', 'peeta', 'cato', 'foxface'].forEach(k => {
-                document.getElementById(`node-${k}`).classList.remove('ring-2', 'ring-amber-500', 'ring-red-600', 'glow-gold', 'glow-red');
-            });
+            // 버튼 비활성화 시각 연출
+            document.querySelectorAll('.tribute-btn').forEach(btn => btn.classList.add('opacity-40'));
 
+            // 카드 타겟 하이라이트 지정
             const currentActor = arenaTributes[key];
             const isCareer = currentActor instanceof CareerTribute;
             const btnNode = document.getElementById(`node-${key}`);
-            
-            if (isCareer) {
-                btnNode.classList.add('ring-2', 'ring-red-600', 'glow-red');
-            } else {
-                btnNode.classList.add('ring-2', 'ring-amber-500', 'glow-gold');
-            }
+            btnNode.classList.remove('opacity-40');
+            btnNode.classList.add('ring-2', isCareer ? 'ring-red-600' : 'ring-amber-500', isCareer ? 'glow-red' : 'glow-gold');
 
-            const result = currentActor.fight(dummyTarget);
+            // [조건 충족 1] 누르는 즉시 파이썬 소스코드 패널에 선주사 매핑 완수
             document.getElementById('code-inspector').textContent = pythonSnippets[key];
 
+            // 객체 오버라이딩 패키지 데이터 로드
+            const simPack = currentActor.fight(dummyTarget);
             const logsContainer = document.getElementById('console-logs');
-            const logEntry = document.createElement('div');
-            logEntry.className = `p-3 bg-slate-900 border-l-2 ${isCareer ? 'border-red-600' : 'border-amber-500'} rounded-r flex gap-3 items-start`;
-            
-            logEntry.innerHTML = `
-                <img src="${imgMap[key]}" class="w-12 h-12 object-contain pixelated bg-gray-950 p-0.5 border border-gray-800 rounded" onerror="this.src='https://placehold.co/100?text=🔥'">
-                <div class="flex-1">
-                    <span class="text-[10px] ${isCareer ? 'text-red-400' : 'text-amber-400'} font-bold font-mono">${result.title}</span>
-                    <p class="mt-1 whitespace-pre-line text-gray-200 text-[11px] font-mono leading-relaxed font-medium">${result.text}</p>
-                    <p class="text-red-400 font-bold mt-1.5 text-[11px] font-mono">🎯 더미 상태: 남은 체력 ${dummyTarget.health} HP</p>
+
+            // 기본 베이스 로그 컨테이너 틀 박스 먼저 생성 및 최상단 삽입
+            const baseLogBox = document.createElement('div');
+            baseLogBox.className = `p-3 bg-slate-900 border-l-2 ${isCareer ? 'border-red-600' : 'border-amber-500'} rounded-r flex gap-3 items-start`;
+            baseLogBox.innerHTML = `
+                <img src="${imgMap[key]}" class="w-12 h-12 object-contain pixelated bg-gray-950 p-0.5 border border-gray-800 rounded">
+                <div class="flex-1 font-mono">
+                    <span class="text-[10px] ${isCareer ? 'text-red-400' : 'text-amber-400'} font-bold block">${simPack.title}</span>
+                    <div class="mt-1 text-gray-400 text-[11px] flex flex-col gap-1" id="dynamic-phase-zone-${key}">
+                        </div>
+                    <p class="text-red-400 font-bold mt-2 text-[11px] opacity-0 transition-opacity duration-300" id="hp-display-zone-${key}">
+                        🎯 Target: ${dummyTarget.name} HP ➡️ ${dummyTarget.health}
+                    </p>
                 </div>
             `;
+            logsContainer.prepend(baseLogBox);
             
-            logsContainer.prepend(logEntry);
-            updateDummyUI();
+            const phaseZone = document.getElementById(`dynamic-phase-zone-${key}`);
+
+            // 🕒 자바스크립트 동적 시간차 출력 알고리즘 루프 (핵심 가산점 파트)
+            for (let i = 0; i < simPack.phases.length; i++) {
+                // 시간차 유도용 딜레이 함수 호출 (0.75초 간격으로 잠시 대기)
+                await sleep(750);
+                
+                const lineNode = document.createElement('p');
+                lineNode.className = i === 2 ? (isCareer ? 'text-red-400 font-bold' : 'text-amber-400 font-bold') : 'text-gray-300';
+                lineNode.textContent = simPack.phases[i];
+                phaseZone.appendChild(lineNode);
+                
+                // 스크롤 동기화
+                logsContainer.scrollTop = 0;
+
+                // 마지막 타격 단계일 때 실제 데미지를 계산하고 상태바와 타겟 HP 텍스트 연동 주사
+                if (i === 2) {
+                    dummyTarget.takeDamage(simPack.damage); // 실연산 수렴
+                    updateDummyUI(); // HP Bar 그래픽 갱신
+                    
+                    // HP 안내 가시화 바인딩
+                    const hpNode = document.getElementById(`hp-display-zone-${key}`);
+                    hpNode.textContent = `🎯 Target: ${dummyTarget.name} HP ➡️ ${dummyTarget.health} HP`;
+                    hpNode.classList.remove('opacity-0');
+                    hpNode.classList.add('opacity-100');
+                }
+            }
+
+            // 시뮬레이션 해제 락 복구
+            isSimulating = false;
+            document.querySelectorAll('.tribute-btn').forEach(btn => btn.classList.remove('opacity-40'));
+            btnNode.classList.remove('ring-2', 'ring-amber-500', 'ring-red-600', 'glow-gold', 'glow-red');
+        }
+
+        // 밀리세컨드 단위 대기 시간을 보장하는 Promise 동기 연산 슬립 함수
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
         }
 
         function updateDummyUI() {
@@ -338,13 +393,11 @@
         }
 
         function resetDummy() {
+            if (isSimulating) return; // 실행 중 리셋 방어
             dummyTarget._health = 100;
             updateDummyUI();
-            document.getElementById('console-logs').innerHTML = '<div class="p-2.5 bg-gray-900/50 border-l-2 border-amber-500 rounded-r"><span class="text-amber-400 block font-bold">[SYSTEM INFO]</span>훈련용 더미가 복구되었습니다. 다시 각 인스턴스 카드를 눌러보세요!</div>';
-            document.getElementById('code-inspector').textContent = '# 더미 상태 복구 완료. 상속 노드를 다시 선택해 주세요.';
-            ['katniss', 'rue', 'peeta', 'cato', 'foxface'].forEach(k => {
-                document.getElementById(`node-${k}`).classList.remove('ring-2', 'ring-amber-500', 'ring-red-600', 'glow-gold', 'glow-red');
-            });
+            document.getElementById('console-logs').innerHTML = '<div class="p-2.5 bg-gray-900/50 border-l-2 border-amber-500 rounded-r"><span class="text-amber-400 block font-bold">[SYSTEM INFO]</span>더미 타겟이 리셋되었습니다. 다음 캐릭터의 시간차 액션을 테스트해보세요.</div>';
+            document.getElementById('code-inspector').textContent = '# 더미 상태 복구 완료.';
         }
     </script>
 </body>
