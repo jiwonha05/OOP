@@ -51,11 +51,11 @@
                 </div>
                 <div>
                     <h1 class="font-cinzel text-xl font-black tracking-widest text-amber-500">THE HUNGER GAMES</h1>
-                    <p class="text-xs text-gray-400">고정형 vs 확률적 크리티컬 다형성 검증 아레나</p>
+                    <p class="text-xs text-gray-400">다형성 아레나</p>
                 </div>
             </div>
             <span class="text-xs bg-amber-500/10 border border-amber-500/30 px-3 py-1.5 rounded-full text-amber-400 font-mono">
-                <i class="fa-solid fa-gamepad mr-1"></i> 확률 분기 엔진 적용
+                <i class="fa-solid fa-sitemap mr-1"></i>
             </span>
         </div>
     </header>
@@ -64,11 +64,10 @@
         
         <div class="p-5 bg-gradient-to-r from-amber-950/20 to-arena-card border border-amber-500/20 rounded-xl">
             <h2 class="text-amber-400 font-bold mb-1 flex items-center gap-2 text-sm sm:text-base">
-                <i class="fa-solid fa-circle-info"></i> 채점 기준 매커니즘 구현 현황
+                <i class="fa-solid fa-circle-info"></i>
             </h2>
             <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">
-                ⚔️ <strong>CareerTribute(카토, 폭스페이스)</strong>: 프로 훈련군 클래스로서 언제나 안정적인 <strong>고정 데미지(-30 HP)</strong>를 가합니다.<br>
-                🏹 <strong>UnderdogTribute(캣니스, 루, 피타)</strong>: 생존주의 클래스로서 50%의 확률에 따라 <strong>일반 기습(-15 HP)</strong> 또는 <strong>치명적 크리티컬(-30 HP)</strong> 데미지를 가하는 차별화된 다형성 메커니즘을 보여줍니다.
+                OOP 클래스 상속 계층 구조도 (UML)
             </p>
         </div>
 
@@ -81,30 +80,70 @@
 
                 <div class="bg-arena-card border border-arena-border rounded-xl p-6 flex flex-col items-center">
                     
-                    <div class="w-56 bg-gradient-to-b from-amber-500 to-amber-600 text-black p-3 rounded-lg text-center shadow-lg mb-4">
-                        <span class="text-[9px] font-mono font-bold tracking-widest block opacity-75">«Abstract Class (Python ABC)»</span>
-                        <h4 class="font-bold text-sm">TributeADT</h4>
-                        <div class="border-t border-black/20 my-1"></div>
-                        <p class="text-[9px] font-mono font-bold text-black/80">@abstractmethod fight(target)</p>
-                    </div>
-
-                    <div class="w-56 bg-slate-800 border border-slate-700 p-3 rounded-lg text-center shadow-md mb-6">
-                        <span class="text-[9px] font-mono font-bold text-slate-400 tracking-widest block">«Base Class»</span>
-                        <h4 class="font-bold text-sm text-amber-400">Tribute</h4>
-                        <div class="border-t border-slate-700 my-1"></div>
-                        <p class="text-[9px] text-gray-400 font-mono">inherits TributeADT</p>
-                    </div>
-
-                    <div class="grid grid-cols-2 gap-4 w-full mb-6">
-                        <div class="bg-gray-900 border border-amber-950 p-3 rounded-lg text-center">
-                            <span class="text-[9px] font-mono text-amber-400 block font-bold">«Derived Class»</span>
-                            <h5 class="text-xs font-bold text-gray-200">UnderdogTribute</h5>
-                            <p class="text-[10px] text-gray-500 mt-0.5">__survival_skill (확률적 크리티컬 분기)</p>
+                    <div class="w-64 bg-gradient-to-b from-amber-500 to-amber-600 text-black rounded-lg shadow-lg mb-4 text-left font-mono text-[11px] overflow-hidden">
+                        <div class="bg-amber-600/30 p-2 font-bold text-center border-b border-black/10 text-xs">
+                            «Abstract» TributeADT
                         </div>
-                        <div class="bg-gray-900 border border-red-950 p-3 rounded-lg text-center">
-                            <span class="text-[9px] font-mono text-red-400 block font-bold">«Derived Class»</span>
-                            <h5 class="text-xs font-bold text-gray-200">CareerTribute</h5>
-                            <p class="text-[10px] text-gray-500 mt-0.5">__academy_years (확정 고정 피해: 30)</p>
+                        <div class="p-2 border-b border-black/10 bg-white/5">
+                            + name : property<br>
+                            + district : property
+                        </div>
+                        <div class="p-2 bg-white/5 font-bold">
+                            + train() : void<br>
+                            + fight(target) : void
+                        </div>
+                    </div>
+
+                    <div class="text-gray-600 text-sm mb-2"><i class="fa-solid fa-arrow-up"></i></div>
+
+                    <div class="w-64 bg-gray-900 border border-slate-700 rounded-lg shadow-md mb-6 text-left font-mono text-[11px] overflow-hidden">
+                        <div class="bg-slate-800 p-2 font-bold text-center border-b border-slate-700 text-slate-200 text-xs">
+                            Tribute
+                        </div>
+                        <div class="p-2 border-b border-slate-700 text-gray-400">
+                            - __name : String<br>
+                            - __district : int<br>
+                            - __weapon : String<br>
+                            - __health : int = 100
+                        </div>
+                        <div class="p-2 text-slate-300">
+                            + name() : property<br>
+                            + district() : property<br>
+                            + weapon() : property<br>
+                            + health() : property<br>
+                            + take_damage(damage)<br>
+                            + train() : void<br>
+                            + fight(target) : void
+                        </div>
+                    </div>
+
+                    <div class="w-2/3 border-t border-gray-700 mb-4"></div>
+
+                    <div class="grid grid-cols-2 gap-4 w-full mb-6 font-mono text-[11px]">
+                        <div class="bg-gray-900 border border-amber-950 rounded-lg overflow-hidden shadow-inner text-left">
+                            <div class="bg-amber-950/40 p-2 text-center font-bold text-amber-400 border-b border-gray-800 text-xs">
+                                UnderdogTribute
+                            </div>
+                            <div class="p-2 border-b border-gray-800 text-gray-400">
+                                - __survival_skill : String
+                            </div>
+                            <div class="p-2 text-amber-500/80">
+                                + fight(target) <span class="text-gray-600 font-sans">[Override]</span><br>
+                                <span class="text-[10px] text-gray-500 font-sans">↳ 50% 확률 크리티컬 (15/30)</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-900 border border-red-950 rounded-lg overflow-hidden shadow-inner text-left">
+                            <div class="bg-red-950/40 p-2 text-center font-bold text-red-400 border-b border-gray-800 text-xs">
+                                CareerTribute
+                            </div>
+                            <div class="p-2 border-b border-gray-800 text-gray-400">
+                                - __academy_years : int
+                            </div>
+                            <div class="p-2 text-red-400">
+                                + fight(target) <span class="text-gray-600 font-sans">[Override]</span><br>
+                                <span class="text-[10px] text-gray-500 font-sans">↳ 확정 고정 피해 (-30 HP)</span>
+                            </div>
                         </div>
                     </div>
 
@@ -197,7 +236,7 @@
                         <div id="console-logs" class="flex-grow overflow-y-auto flex flex-col gap-2.5 text-xs text-gray-300 font-mono">
                             <div class="p-2.5 bg-gray-900/50 border-l-2 border-amber-500 rounded-r">
                                 <span class="text-amber-400 block font-bold">[SYSTEM INFO]</span>
-                                다형성 인터랙션 메커니즘 활성화 완료.<br>카드를 누르면 고정형 데이터 연산과 확률적 크리티컬 데이터 연산의 명확한 차이가 콘솔에 주사됩니다!
+                                아레나에 오신 것을 환영합니다! 왼쪽의 캐릭터 카드를 클릭하여 다형성 연산 시뮬레이션을 시작하세요. 고정형 클래스는 항상 30 데미지를 입히며, 확률형 클래스는 15 또는 30 데미지를 입힐 수 있습니다. 실시간으로 더미 타겟의 HP 변화를 관찰하세요!
                             </div>
                         </div>
                     </div>
@@ -242,7 +281,6 @@
                 super(name, district, weapon);
                 this._survivalSkill = survivalSkill;
             }
-            // 다형성 오버라이딩: 50% 확률형 크리티컬 연산 적용 
             fight(target) {
                 const isCritical = Math.random() < 0.5;
                 const dmg = isCritical ? 30 : 15;
@@ -268,7 +306,6 @@
                 super(name, district, weapon);
                 this._academyYears = academyYears;
             }
-            // 다형성 오버라이딩
             fight(target) {
                 return {
                     damage: 30,
@@ -301,10 +338,10 @@
         };
 
         const pythonSnippets = {
-            katniss: `class UnderdogTribute(Tribute):\n    def fight(self, target):\n        # import random\n        is_crit = random.random() < 0.5\n        dmg = 30 if is_crit else 15\n        target.take_damage(dmg)`,
+            katniss: `class UnderdogTribute(Tribute):\n    def fight(self, target):\n        import random\n        is_crit = random.random() < 0.5\n        dmg = 30 if is_crit else 15\n        target.take_damage(dmg)`,
             rue: `class UnderdogTribute(Tribute):\n    def fight(self, target):\n        import random\n        is_crit = random.random() < 0.5\n        dmg = 30 if is_crit else 15\n        target.take_damage(dmg)`,
             peeta: `class UnderdogTribute(Tribute):\n    def fight(self, target):\n        import random\n        is_crit = random.random() < 0.5\n        dmg = 30 if is_crit else 15\n        target.take_damage(dmg)`,
-            cato: `class CareerTribute(Tribute):\n    def fight(self, target):\n        # target.take_damage(30)`,
+            cato: `class CareerTribute(Tribute):\n    def fight(self, target):\n        target.take_damage(30)`,
             foxface: `class CareerTribute(Tribute):\n    def fight(self, target):\n        target.take_damage(30)`
         };
 
@@ -319,12 +356,11 @@
             const currentActor = arenaTributes[key];
             const isCareer = currentActor instanceof CareerTribute;
             const btnNode = document.getElementById(`node-${key}`);
-            btnNode.removeClassName = 'opacity-40';
+            btnNode.classList.remove('opacity-40');
             btnNode.classList.add('ring-2', isCareer ? 'ring-red-600' : 'ring-amber-500', isCareer ? 'glow-red' : 'glow-gold');
 
             document.getElementById('code-inspector').textContent = pythonSnippets[key];
 
-            // 런타임 다형성 결과 동적 생성
             const simPack = currentActor.fight(dummyTarget);
             const logsContainer = document.getElementById('console-logs');
 
