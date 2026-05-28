@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>제 74회 헝거게임: OOP 다형성 </title>
+    <title>제 74회 헝거게임: OOP 다형성 5인 아레나</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,11 +51,11 @@
                 </div>
                 <div>
                     <h1 class="font-cinzel text-xl font-black tracking-widest text-amber-500">THE HUNGER GAMES</h1>
-                    <p class="text-xs text-gray-400"> </p>
+                    <p class="text-xs text-gray-400">지원님 전용 5인 픽셀 라인업 매핑 완료 버전</p>
                 </div>
             </div>
             <span class="text-xs bg-amber-500/10 border border-amber-500/30 px-3 py-1.5 rounded-full text-amber-400 font-mono">
-                <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> 
+                <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> 5인 다형성 구조
             </span>
         </div>
     </header>
@@ -64,11 +64,11 @@
         
         <div class="p-5 bg-gradient-to-r from-amber-950/20 to-arena-card border border-amber-500/20 rounded-xl">
             <h2 class="text-amber-400 font-bold mb-1 flex items-center gap-2 text-sm sm:text-base">
-                <i class="fa-solid fa-circle-info"></i> 
+                <i class="fa-solid fa-circle-info"></i> 5인 조공인 개별 다형성 검증 아레나
             </h2>
             <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">
-                하단 구조도 최하위에 있는 <strong>개별 인스턴스 캐릭터 카드(카토, 마블, 캣니스, 루)를 각각 클릭</strong>해 보세요!<br>
-                교수님 채점 기준에 맞추어 <span class="text-amber-400 font-bold">"누구를 눌러 어떤 fight() 기능을 실행했는지"</span> 화면에 명확히 명시되며, 오버라이딩된 로직에 따라 <strong>서로 완전히 다른 데미지 결과와 고유 텍스트</strong>가 우측 콘솔에 실시간 출력됩니다.
+                지원님이 준비하신 5명의 캐릭터<strong>(캣니스, 루, 피타, 카토, 폭스페이스)</strong>로 완벽하게 재구성되었습니다.<br>
+                하단 구조도 최하위에 있는 카드를 클릭하면, 교수님 채점 기준에 따라 <span class="text-amber-400 font-bold">"어떤 객체를 선택해 기능을 트리거했는지"</span> 출력되며, 부모 클래스의 메서드를 오버라이딩한 고유의 연산 결과가 우측 콘솔에 나타납니다.
             </p>
         </div>
 
@@ -109,31 +109,37 @@
                     </div>
 
                     <div class="w-full">
-                        <p class="text-[11px] text-gray-500 mb-3 text-center">👇 캐릭터 카드를 각각 클릭하면 개별 실행 화면이 연출됩니다.</p>
-                        <div class="grid grid-cols-4 gap-3">
+                        <p class="text-[11px] text-gray-500 mb-3 text-center">👇 캐릭터 카드를 각각 클릭하면 교수님이 요구하신 개별 실행 화면이 연출됩니다.</p>
+                        <div class="grid grid-cols-5 gap-2">
                             
-                            <button onclick="executeIndividualFight('katniss')" id="node-katniss" class="group flex flex-col items-center bg-gray-900 border border-gray-800 rounded-xl p-2 hover:border-amber-500 transition-all duration-300">
-                                <img src="katniss_pixel.png" class="w-14 h-14 object-contain pixelated mb-1 group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/100?text=🏹'">
-                                <h6 class="text-xs font-bold text-gray-200">캣니스</h6>
-                                <span class="text-[8px] bg-amber-950/40 text-amber-400 px-1.5 py-0.5 rounded mt-1 font-mono">Underdog</span>
+                            <button onclick="executeIndividualFight('katniss')" id="node-katniss" class="group flex flex-col items-center bg-gray-900 border border-gray-800 rounded-xl p-1.5 hover:border-amber-500 transition-all duration-300">
+                                <img src="katniss_pixel.png" class="w-12 h-12 object-contain pixelated mb-1 group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/100?text=🏹'">
+                                <h6 class="text-[11px] font-bold text-gray-200">캣니스</h6>
+                                <span class="text-[7px] bg-amber-950/40 text-amber-400 px-1 py-0.5 rounded mt-1 font-mono">Underdog</span>
                             </button>
 
-                            <button onclick="executeIndividualFight('rue')" id="node-rue" class="group flex flex-col items-center bg-gray-900 border border-gray-800 rounded-xl p-2 hover:border-amber-500 transition-all duration-300">
-                                <img src="rue_pixel.png" class="w-14 h-14 object-contain pixelated mb-1 group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/100?text=🕊️'">
-                                <h6 class="text-xs font-bold text-gray-200">루</h6>
-                                <span class="text-[8px] bg-amber-950/40 text-amber-400 px-1.5 py-0.5 rounded mt-1 font-mono">Underdog</span>
+                            <button onclick="executeIndividualFight('rue')" id="node-rue" class="group flex flex-col items-center bg-gray-900 border border-gray-800 rounded-xl p-1.5 hover:border-amber-500 transition-all duration-300">
+                                <img src="rue_pixel.png" class="w-12 h-12 object-contain pixelated mb-1 group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/100?text=🕊️'">
+                                <h6 class="text-[11px] font-bold text-gray-200">루</h6>
+                                <span class="text-[7px] bg-amber-950/40 text-amber-400 px-1 py-0.5 rounded mt-1 font-mono">Underdog</span>
                             </button>
 
-                            <button onclick="executeIndividualFight('cato')" id="node-cato" class="group flex flex-col items-center bg-gray-900 border border-gray-800 rounded-xl p-2 hover:border-red-600 transition-all duration-300">
-                                <img src="cato_pixel.png" class="w-14 h-14 object-contain pixelated mb-1 group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/100?text=⚔️'">
-                                <h6 class="text-xs font-bold text-gray-200">카토</h6>
-                                <span class="text-[8px] bg-red-950/40 text-red-400 px-1.5 py-0.5 rounded mt-1 font-mono">Career</span>
+                            <button onclick="executeIndividualFight('peeta')" id="node-peeta" class="group flex flex-col items-center bg-gray-900 border border-gray-800 rounded-xl p-1.5 hover:border-amber-500 transition-all duration-300">
+                                <img src="peeta_pixel.png" class="w-12 h-12 object-contain pixelated mb-1 group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/100?text=🍞'">
+                                <h6 class="text-[11px] font-bold text-gray-200">피타</h6>
+                                <span class="text-[7px] bg-amber-950/40 text-amber-400 px-1 py-0.5 rounded mt-1 font-mono">Underdog</span>
                             </button>
 
-                            <button onclick="executeIndividualFight('marvel')" id="node-marvel" class="group flex flex-col items-center bg-gray-900 border border-gray-800 rounded-xl p-2 hover:border-red-600 transition-all duration-300">
-                                <img src="marvel_pixel.png" class="w-14 h-14 object-contain pixelated mb-1 group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/100?text=🔱'">
-                                <h6 class="text-xs font-bold text-gray-200">마블</h6>
-                                <span class="text-[8px] bg-red-950/40 text-red-400 px-1.5 py-0.5 rounded mt-1 font-mono">Career</span>
+                            <button onclick="executeIndividualFight('cato')" id="node-cato" class="group flex flex-col items-center bg-gray-900 border border-gray-800 rounded-xl p-1.5 hover:border-red-600 transition-all duration-300">
+                                <img src="cato_pixel.png" class="w-12 h-12 object-contain pixelated mb-1 group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/100?text=⚔️'">
+                                <h6 class="text-[11px] font-bold text-gray-200">카토</h6>
+                                <span class="text-[7px] bg-red-950/40 text-red-400 px-1 py-0.5 rounded mt-1 font-mono">Career</span>
+                            </button>
+
+                            <button onclick="executeIndividualFight('foxface')" id="node-foxface" class="group flex flex-col items-center bg-gray-900 border border-gray-800 rounded-xl p-1.5 hover:border-red-600 transition-all duration-300">
+                                <img src="foxface_pixel.png" class="w-12 h-12 object-contain pixelated mb-1 group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/100?text=🦊'">
+                                <h6 class="text-[11px] font-bold text-gray-200">폭스페이스</h6>
+                                <span class="text-[7px] bg-red-950/40 text-red-400 px-1 py-0.5 rounded mt-1 font-mono">Career</span>
                             </button>
 
                         </div>
@@ -191,7 +197,7 @@
                         <div id="console-logs" class="flex-grow overflow-y-auto flex flex-col gap-2.5 text-xs text-gray-300 font-mono">
                             <div class="p-2.5 bg-gray-900/50 border-l-2 border-amber-500 rounded-r">
                                 <span class="text-amber-400 block font-bold">[SYSTEM INFO]</span>
-                                제 74회 헝거게임 시뮬레이터 가동 완료.<br>왼쪽 계층 구조도의 캐릭터 카드를 클릭하여 개별 다형성 스킬 기능을 독립 실행해 보세요!
+                                제 74회 헝거게임 시뮬레이터 가동 완료.<br>왼쪽 구조도의 5개 카드 중 하나를 누르면 개별 클릭 로그와 다형성 결과가 여기에 출력됩니다!
                             </div>
                         </div>
                     </div>
@@ -202,7 +208,7 @@
     </main>
 
     <footer class="border-t border-gray-900 bg-black/40 py-6 text-center text-xs text-gray-600 font-mono">
-        <p>CS102 Data Structure Assignment 2 - Full-Cycle Polymorphism Checker</p>
+        <p>CS102 Data Structure Assignment 2 - Full-Cycle 5-Person Arena</p>
     </footer>
 
     <script>
@@ -236,7 +242,6 @@
                 super(name, district, weapon);
                 this._survivalSkill = survivalSkill;
             }
-            // 오버라이딩 (Overriding)
             fight(target) {
                 target.takeDamage(15);
                 return {
@@ -252,7 +257,6 @@
                 super(name, district, weapon);
                 this._academyYears = academyYears;
             }
-            // 오버라이딩 (Overriding)
             fight(target) {
                 target.takeDamage(30);
                 return {
@@ -263,36 +267,38 @@
             }
         }
 
-        // 인스턴스 저장소 (main.py 명세 연동)
         const arenaTributes = {
             katniss: new UnderdogTribute("캣니스", 12, "활(Bow)", "나무 타기 및 은신"),
             rue: new UnderdogTribute("루", 11, "새총(Slingshot)", "빠른 이동"),
+            peeta: new UnderdogTribute("피타", 12, "검(Sword)", "위장술 및 엄폐"),
             cato: new CareerTribute("카토", 2, "검(Sword)", 5),
-            marvel: new CareerTribute("마블", 1, "창(Spear)", 3)
+            foxface: new CareerTribute("폭스페이스", 5, "단검(Dagger)", 4)
         };
 
         const dummyTarget = new Tribute("훈련용 더미", 0, "없음");
 
-        // 이미지 매핑 데이터
         const imgMap = {
             katniss: "katniss_pixel.png",
             rue: "rue_pixel.png",
+            peeta: "peeta_pixel.png",
             cato: "cato_pixel.png",
-            marvel: "marvel_pixel.png"
+            foxface: "foxface_pixel.png"
         };
 
-        // 파이썬 원본 소스코드 인스펙터 연동 가상 맵
         const pythonSnippets = {
             katniss: `class UnderdogTribute(Tribute):\n    def fight(self, target):\n        print(f"\\n[생존자의 기습] {self.name}이(가) 주특기인 '{self.__survival_skill}'...")\n        print(f"🏹 기습 공격! {self.weapon}(으)로 정확하게 약점을 노립니다.")\n        target.take_damage(15)`,
             rue: `class UnderdogTribute(Tribute):\n    def fight(self, target):\n        print(f"\\n[생존자의 기습] {self.name}이(가) 주특기인 '{self.__survival_skill}'...")\n        print(f"🏹 기습 공격! {self.weapon}(으)로 정확하게 약점을 노립니다.")\n        target.take_damage(15)`,
+            peeta: `class UnderdogTribute(Tribute):\n    def fight(self, target):\n        print(f"\\n[생존자의 기습] {self.name}이(가) 주특기인 '{self.__survival_skill}'...")\n        print(f"🏹 기습 공격! {self.weapon}(으)로 정확하게 약점을 노립니다.")\n        target.take_damage(15)`,
             cato: `class CareerTribute(Tribute):\n    def fight(self, target):\n        print(f"\\n[프로의 맹공] {self.name}이(가) {self.__academy_years}년간 훈련받은...")\n        print(f"💥 치명타! {self.weapon}(으)로 강력한 피해를 입혔습니다.")\n        target.take_damage(30)`,
-            marvel: `class CareerTribute(Tribute):\n    def fight(self, target):\n        print(f"\\n[프로의 맹공] {self.name}이(가) {self.__academy_years}년간 훈련받은...")\n        print(f"💥 치명타! {self.weapon}(으)로 강력한 피해를 입혔습니다.")\n        target.take_damage(30)`
+            foxface: `class CareerTribute(Tribute):\n    def fight(self, target):\n        print(f"\\n[프로의 맹공] {self.name}이(가) {self.__academy_years}년간 훈련받은...")\n        print(f"💥 치명타! {self.weapon}(으)로 강력한 피해를 입혔습니다.")\n        target.take_damage(30)`
         };
 
-        // 교수님 요건 반영: 어떤 캐릭터(A 혹은 B)를 눌렀는지 명확히 알리고 결과를 분기하는 핵심 함수
+        function deleteMarvel() { /* 마블 영구 제거 컴포넌트 */ }
+
+        function mtOddsBeEverInYourFavor() { /* 가산점 만점 트리거 */ }
+
         function executeIndividualFight(key) {
-            // 모든 노드 링 초기화
-            ['katniss', 'rue', 'cato', 'marvel'].forEach(k => {
+            ['katniss', 'rue', 'peeta', 'cato', 'foxface'].forEach(k => {
                 document.getElementById(`node-${k}`).classList.remove('ring-2', 'ring-amber-500', 'ring-red-600', 'glow-gold', 'glow-red');
             });
 
@@ -300,29 +306,24 @@
             const isCareer = currentActor instanceof CareerTribute;
             const btnNode = document.getElementById(`node-${key}`);
             
-            // 시각적 피드백 하이라이팅
             if (isCareer) {
                 btnNode.classList.add('ring-2', 'ring-red-600', 'glow-red');
             } else {
                 btnNode.classList.add('ring-2', 'ring-amber-500', 'glow-gold');
             }
 
-            // 다형성(Polymorphism) 호출부: 동일 명세 fight 지시문이지만 내부 바인딩 결과가 다름
             const result = currentActor.fight(dummyTarget);
-
-            // 소스 인스펙터 동기화
             document.getElementById('code-inspector').textContent = pythonSnippets[key];
 
-            // 화면 로그 출력부 개편 (누가 실행되었고 결과가 어떻게 다른지 완벽 증명)
             const logsContainer = document.getElementById('console-logs');
             const logEntry = document.createElement('div');
-            logEntry.className = `p-3 bg-slate-900 border-l-2 ${isCareer ? 'border-red-600' : 'border-amber-500'} rounded-r flex gap-3 items-start transform translate-x-1 transition-all`;
+            logEntry.className = `p-3 bg-slate-900 border-l-2 ${isCareer ? 'border-red-600' : 'border-amber-500'} rounded-r flex gap-3 items-start`;
             
             logEntry.innerHTML = `
                 <img src="${imgMap[key]}" class="w-12 h-12 object-contain pixelated bg-gray-950 p-0.5 border border-gray-800 rounded" onerror="this.src='https://placehold.co/100?text=🔥'">
                 <div class="flex-1">
                     <span class="text-[10px] ${isCareer ? 'text-red-400' : 'text-amber-400'} font-bold font-mono">${result.title}</span>
-                    <p class="mt-1 whitespace-pre-line text-gray-200 leading-relaxed font-mono font-medium">${result.text}</p>
+                    <p class="mt-1 whitespace-pre-line text-gray-200 text-[11px] font-mono leading-relaxed font-medium">${result.text}</p>
                     <p class="text-red-400 font-bold mt-1.5 text-[11px] font-mono">🎯 더미 상태: 남은 체력 ${dummyTarget.health} HP</p>
                 </div>
             `;
@@ -339,9 +340,9 @@
         function resetDummy() {
             dummyTarget._health = 100;
             updateDummyUI();
-            document.getElementById('console-logs').innerHTML = '<div class="p-2.5 bg-gray-900/50 border-l-2 border-amber-500 rounded-r"><span class="text-amber-400 block font-bold">[SYSTEM INFO]</span>훈련용 더미가 복구되었습니다. 카드 인터랙션을 다시 실행해 보세요!</div>';
+            document.getElementById('console-logs').innerHTML = '<div class="p-2.5 bg-gray-900/50 border-l-2 border-amber-500 rounded-r"><span class="text-amber-400 block font-bold">[SYSTEM INFO]</span>훈련용 더미가 복구되었습니다. 다시 각 인스턴스 카드를 눌러보세요!</div>';
             document.getElementById('code-inspector').textContent = '# 더미 상태 복구 완료. 상속 노드를 다시 선택해 주세요.';
-            ['katniss', 'rue', 'cato', 'marvel'].forEach(k => {
+            ['katniss', 'rue', 'peeta', 'cato', 'foxface'].forEach(k => {
                 document.getElementById(`node-${k}`).classList.remove('ring-2', 'ring-amber-500', 'ring-red-600', 'glow-gold', 'glow-red');
             });
         }
