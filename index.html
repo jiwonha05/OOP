@@ -301,10 +301,10 @@
         };
 
         const pythonSnippets = {
-            katniss: `class UnderdogTribute(Tribute):\n    def fight(self, target):\n        # 교수님 채점 기준: 50% 확률 분기 크리티컬 이식\n        import random\n        is_crit = random.random() < 0.5\n        dmg = 30 if is_crit else 15\n        target.take_damage(dmg)`,
+            katniss: `class UnderdogTribute(Tribute):\n    def fight(self, target):\n        # import random\n        is_crit = random.random() < 0.5\n        dmg = 30 if is_crit else 15\n        target.take_damage(dmg)`,
             rue: `class UnderdogTribute(Tribute):\n    def fight(self, target):\n        import random\n        is_crit = random.random() < 0.5\n        dmg = 30 if is_crit else 15\n        target.take_damage(dmg)`,
             peeta: `class UnderdogTribute(Tribute):\n    def fight(self, target):\n        import random\n        is_crit = random.random() < 0.5\n        dmg = 30 if is_crit else 15\n        target.take_damage(dmg)`,
-            cato: `class CareerTribute(Tribute):\n    def fight(self, target):\n        # 교수님 채점 기준: 확정 고정 피해 이식\n        target.take_damage(30)`,
+            cato: `class CareerTribute(Tribute):\n    def fight(self, target):\n        # target.take_damage(30)`,
             foxface: `class CareerTribute(Tribute):\n    def fight(self, target):\n        target.take_damage(30)`
         };
 
